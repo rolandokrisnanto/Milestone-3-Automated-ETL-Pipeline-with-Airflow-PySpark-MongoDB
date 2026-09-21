@@ -1,0 +1,12 @@
+# Credentials
+.env
+
+# Airflow runtime
+logs/
+plugins/
+__pycache__/
+*.pyc
+
+# Output sementara hasil PySpark, bisa di-generate ulang lewat pipeline
+data/extract_result/
+data/transform_result/
