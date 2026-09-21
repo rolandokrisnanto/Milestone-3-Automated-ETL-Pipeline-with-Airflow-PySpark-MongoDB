@@ -1,0 +1,27 @@
+# Salin file ini menjadi ".env" lalu isi dengan credensial milik sendiri yang sudah dibuat
+
+# Meta-Database (Postgres untuk Airflow)
+POSTGRES_USER=airflow
+POSTGRES_PASSWORD=<isi password postgres pilihanmu>
+POSTGRES_DB=airflow
+
+# Airflow Core
+# Generate fernet key baru, contoh:
+# python -c "from cryptography.fernet import Fernet; print(Fernet.generate_key().decode())"
+AIRFLOW__CORE__FERNET_KEY=<isi hasil generate fernet key>
+AIRFLOW__CORE__EXECUTOR=LocalExecutor
+AIRFLOW__CORE__DAGS_ARE_PAUSED_AT_CREATION=True
+AIRFLOW__CORE__LOAD_EXAMPLES=False
+AIRFLOW_UID=0
+
+# Backend DB — harus sama dengan POSTGRES_PASSWORD di atas
+AIRFLOW__DATABASE__SQL_ALCHEMY_CONN=postgresql+psycopg2://airflow:<isi password postgres pilihanmu>@postgres/airflow
+AIRFLOW__DATABASE__LOAD_DEFAULT_CONNECTIONS=False
+
+# Airflow Init — username & password untuk login ke Airflow webserver (UI)
+_AIRFLOW_DB_UPGRADE=True
+_AIRFLOW_WWW_USER_CREATE=True
+_AIRFLOW_WWW_USER_USERNAME=<isi username login airflow pilihanmu>
+_AIRFLOW_WWW_USER_PASSWORD=<isi password login airflow pilihanmu>
+
+# NOTE: koneksi MongoDB langsung di scripts/load.py, lihat komentar "CARA KONEK KE MONGODB" di file itu.
