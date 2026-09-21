@@ -61,18 +61,16 @@ Python · PySpark · Apache Airflow · MongoDB · PyMongo · Great Expectations 
 ## Struktur Project
 
 ```
-├── P2M3_rolando_krisnanto.ipynb                    # EDA & validasi data dengan Great Expectations
+├── P2M3_rolando_krisnanto.ipynb                       # EDA & validasi data dengan Great Expectations
 ├── dags/
-│   └── P2M3_rolando_krisnanto_DAG.py                # DAG Airflow (extract → transform → load)
+│   └── P2M3_rolando_krisnanto_DAG.py                  # DAG Airflow (extract → transform → load)
 ├── scripts/
 │   ├── extract.py
 │   ├── transform.py
 │   └── load.py
 ├── data/
-│   ├── P2M3_rolando_krisnanto_data_raw.csv           # Data mentah
-│   ├── extract_result/                               # Output tahap extract
-│   └── transform_result/                             # Output tahap transform (star schema)
-├── Dockerfile                                        # Image Airflow + PySpark (Java 11)
+│   └── P2M3_rolando_krisnanto_data_raw.csv            # Dataset Raw
+├── Dockerfile                                         # Image Airflow + PySpark (Java 11)
 ├── airflow.yaml                                       # Docker Compose untuk Airflow + Postgres
 ├── requirements.txt
 ├── P2M3_rolando_krisnanto_screenshot_mongo.jpg        # Bukti data tersimpan di MongoDB Atlas
@@ -82,7 +80,7 @@ Python · PySpark · Apache Airflow · MongoDB · PyMongo · Great Expectations 
 
 ## Cara Menjalankan
 
-1. Siapkan file `.env` (connection string MongoDB, dsb.)
+1. Siapkan file `.env` (konfigurasi untuk environmentnya) / gunakan dan rubah `env_example.txt` sebagai file `.env` nantinya
 2. Jalankan Airflow + Spark via Docker Compose:
    ```
    docker compose -f airflow.yaml up -d --build
